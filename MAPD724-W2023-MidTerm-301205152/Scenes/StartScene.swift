@@ -19,6 +19,8 @@ class StartScene: SKScene
     // instance variables
     var ocean1: Ocean?
     var ocean2: Ocean?
+    var ocean3: Ocean?
+    var ocean4: Ocean?
     
     override func sceneDidLoad()
     {
@@ -26,12 +28,14 @@ class StartScene: SKScene
         
         // add the first ocean to the Scene
         ocean1 = Ocean()
+        ocean1?.position = CGPoint(x: 627, y: 173)
         ocean1?.Reset()
         addChild(ocean1!)
         
-        // add the second ocean to the scene
+        // add the third ocean to the Scene
         ocean2 = Ocean()
-        ocean2?.position.y = -627
+        ocean2?.position = CGPoint(x: 627, y: -1107)
+        ocean2?.Reset()
         addChild(ocean2!)
     }
     
@@ -70,5 +74,7 @@ class StartScene: SKScene
     {
         ocean1?.Update()
         ocean2?.Update()
+        ocean3?.Update()
+        ocean4?.Update()
     }
 }
