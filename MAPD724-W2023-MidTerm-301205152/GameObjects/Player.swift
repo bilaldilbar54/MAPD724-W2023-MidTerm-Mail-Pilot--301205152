@@ -29,6 +29,7 @@ class Player : GameObject
     override func Start()
     {
         zPosition = Layer.plane.rawValue
+        zRotation = -CGFloat.pi/2
         Reset()
     }
     
@@ -39,22 +40,22 @@ class Player : GameObject
     
     override func CheckBounds()
     {
-        //Constraint the player on left boundary
-        if(position.x <= -320)
+        //Constraint the player on the top boundary
+        if(position.y >= 300)
         {
-            position.x = -320
+            position.y = 300
         }
         
-        //Constraint the player on left boundary
-        if(position.x >= 320)
+        //Constraint the player on the bottom boundary
+        if(position.y <= -300)
         {
-            position.x = 320
+            position.y = -300
         }
     }
     
     override func Reset()
     {
-        position.y = -640
+        position.x = -740
     }
     
     func TouchMove(newPos: CGPoint)

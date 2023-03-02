@@ -38,18 +38,20 @@ class GameScene: SKScene
         
         // add the first ocean to the Scene
         ocean1 = Ocean()
-        ocean1?.position = CGPoint(x: 627, y: 173)
+        ocean1?.yScale = 2.75
+        ocean1?.position = CGPoint(x: 320, y: 0)
         ocean1?.Reset()
         addChild(ocean1!)
         
-        // add the third ocean to the Scene
-        ocean2 = Ocean()
-        ocean2?.position = CGPoint(x: 627, y: -1107)
-        ocean2?.Reset()
-        addChild(ocean2!)
+        // add the second ocean to the Scene
+//        ocean2 = Ocean()
+//        ocean2?.position = CGPoint(x: 627, y: -1107)
+//        ocean2?.Reset()
+//        addChild(ocean2!)
         
         //Add the player to the scene
         player = Player()
+        //player?.position = CGPoint(x: -740, y: 0)
         addChild(player!)
         
         //Add the island to the scene
@@ -90,17 +92,17 @@ class GameScene: SKScene
     
     func touchDown(atPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -740, y: pos.y))
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -740, y: pos.y))
     }
     
     func touchUp(atPoint pos : CGPoint)
     {
-        player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
+        player?.TouchMove(newPos: CGPoint(x: -740, y: pos.y))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
