@@ -36,16 +36,17 @@ class GameScene: SKScene
         
         name = "GAME"
         
-        //Add the first ocean to the scene
+        // add the first ocean to the Scene
         ocean1 = Ocean()
-        ocean1?.position = CGPoint(x: 627, y: 0)
+        ocean1?.position = CGPoint(x: 627, y: 173)
         ocean1?.Reset()
         addChild(ocean1!)
         
-        //Add the second ocean to the scene
-        //ocean2 = Ocean()
-        //ocean2?.position = CGPoint(x: 2253, y: 0)
-        //addChild(ocean2!)
+        // add the third ocean to the Scene
+        ocean2 = Ocean()
+        ocean2?.position = CGPoint(x: 627, y: -1107)
+        ocean2?.Reset()
+        addChild(ocean2!)
         
         //Add the player to the scene
         player = Player()

@@ -19,8 +19,6 @@ class StartScene: SKScene
     // instance variables
     var ocean1: Ocean?
     var ocean2: Ocean?
-    var ocean3: Ocean?
-    var ocean4: Ocean?
     
     override func sceneDidLoad()
     {
@@ -74,7 +72,5 @@ class StartScene: SKScene
     {
         ocean1?.Update()
         ocean2?.Update()
-        ocean3?.Update()
-        ocean4?.Update()
     }
 }
