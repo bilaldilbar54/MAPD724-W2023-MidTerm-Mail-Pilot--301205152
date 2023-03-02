@@ -1,24 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dock51.ttf">
+            <string>Dock51</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="MAPD724_W2023_MidTerm_301205152" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4mL-8X-xfZ" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lives: 99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koe-fn-v97" userLabel="Lives Label">
+                                <rect key="frame" x="20" y="59" width="135" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="Ne7-YY-wQG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dock51" family="Dock 51" pointSize="24"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 99999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tK6-jF-Pkw" userLabel="Score Label">
+                                <rect key="frame" x="213" y="59" width="197" height="25"/>
+                                <fontDescription key="fontDescription" name="Dock51" family="Dock 51" pointSize="24"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-48-AUF">
+                                <rect key="frame" x="20" y="237" width="390" height="182"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="182" id="KJt-pn-XgS"/>
+                                </constraints>
+                                <string key="text">Play
+Mail Pilot</string>
+                                <fontDescription key="fontDescription" name="Dock51" family="Dock 51" pointSize="80"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVa-jF-Jzz">
+                                <rect key="frame" x="123" y="497" width="216" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="c7E-WB-kFJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start">
+                                    <fontDescription key="titleFontDescription" name="Dock51" family="Dock 51" pointSize="48"/>
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="StartButton_Pressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6kF-Vd-TPk"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC3-83-fZd" userLabel="End Label">
+                                <rect key="frame" x="20" y="237" width="390" height="182"/>
+                                <fontDescription key="fontDescription" name="Dock51" family="Dock 51" pointSize="70"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH5-5Q-tJk">
+                                <rect key="frame" x="123" y="497" width="216" height="73"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Restart">
+                                    <fontDescription key="titleFontDescription" name="Dock51" family="Dock 51" pointSize="48"/>
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="RestartButton_Pressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="et4-X6-hon"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PSk-1O-2qK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tK6-jF-Pkw" firstAttribute="trailing" secondItem="4mL-8X-xfZ" secondAttribute="trailingMargin" id="06n-3j-Rxk"/>
+                            <constraint firstItem="tK6-jF-Pkw" firstAttribute="leading" secondItem="Koe-fn-v97" secondAttribute="trailing" constant="58" id="0Ru-IW-McN"/>
+                            <constraint firstItem="PSk-1O-2qK" firstAttribute="bottom" secondItem="MH5-5Q-tJk" secondAttribute="bottom" constant="328" id="0w9-B9-LTD"/>
+                            <constraint firstItem="PSk-1O-2qK" firstAttribute="bottom" secondItem="rVa-jF-Jzz" secondAttribute="bottom" constant="328" id="0wF-KW-wNx"/>
+                            <constraint firstItem="tK6-jF-Pkw" firstAttribute="trailing" secondItem="hC3-83-fZd" secondAttribute="trailing" id="1Zf-p1-xiv"/>
+                            <constraint firstItem="eqt-48-AUF" firstAttribute="centerX" secondItem="rVa-jF-Jzz" secondAttribute="centerX" constant="-16" id="1mU-Zo-ty3"/>
+                            <constraint firstItem="Koe-fn-v97" firstAttribute="leading" secondItem="hC3-83-fZd" secondAttribute="leading" id="2d6-5H-IC7"/>
+                            <constraint firstItem="hC3-83-fZd" firstAttribute="top" secondItem="eqt-48-AUF" secondAttribute="top" id="CKE-SQ-RFT"/>
+                            <constraint firstItem="eqt-48-AUF" firstAttribute="trailing" secondItem="hC3-83-fZd" secondAttribute="trailing" id="GmR-7n-gPD"/>
+                            <constraint firstItem="rVa-jF-Jzz" firstAttribute="leading" secondItem="PSk-1O-2qK" secondAttribute="leading" constant="123" id="Lmb-hs-0uz"/>
+                            <constraint firstItem="hC3-83-fZd" firstAttribute="leading" secondItem="eqt-48-AUF" secondAttribute="leading" id="NcI-ta-0Qf"/>
+                            <constraint firstItem="Koe-fn-v97" firstAttribute="top" secondItem="PSk-1O-2qK" secondAttribute="top" id="PZS-Tk-WJ4"/>
+                            <constraint firstItem="Koe-fn-v97" firstAttribute="baseline" secondItem="tK6-jF-Pkw" secondAttribute="baseline" id="RWv-6d-rpj"/>
+                            <constraint firstItem="MH5-5Q-tJk" firstAttribute="top" secondItem="eqt-48-AUF" secondAttribute="bottom" constant="78" id="UIU-wu-aj7"/>
+                            <constraint firstItem="Koe-fn-v97" firstAttribute="leading" secondItem="4mL-8X-xfZ" secondAttribute="leadingMargin" id="W8b-sN-57Z"/>
+                            <constraint firstItem="rVa-jF-Jzz" firstAttribute="leading" secondItem="MH5-5Q-tJk" secondAttribute="leading" id="uBX-OI-itl"/>
+                            <constraint firstItem="rVa-jF-Jzz" firstAttribute="top" secondItem="eqt-48-AUF" secondAttribute="bottom" constant="78" id="wID-sb-qc0"/>
+                            <constraint firstItem="rVa-jF-Jzz" firstAttribute="trailing" secondItem="MH5-5Q-tJk" secondAttribute="trailing" id="wkP-QT-Ma2"/>
+                            <constraint firstItem="hC3-83-fZd" firstAttribute="bottom" secondItem="eqt-48-AUF" secondAttribute="bottom" id="z85-3C-bJ3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="EndLabel" destination="hC3-83-fZd" id="ykL-to-c8h"/>
+                        <outlet property="LivesLabel" destination="Koe-fn-v97" id="AnL-M5-YaZ"/>
+                        <outlet property="RestartButton" destination="MH5-5Q-tJk" id="MOT-8o-WNg"/>
+                        <outlet property="ScoreLabel" destination="tK6-jF-Pkw" id="V2a-Mt-b8Z"/>
+                        <outlet property="StartButton" destination="rVa-jF-Jzz" id="lqt-lj-Hye"/>
+                        <outlet property="StartLabel" destination="eqt-48-AUF" id="VgB-QA-o5A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="4"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

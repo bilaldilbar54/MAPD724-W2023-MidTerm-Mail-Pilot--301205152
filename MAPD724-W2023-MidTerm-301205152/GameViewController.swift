@@ -1,55 +1,120 @@
-//
-//  GameViewController.swift
-//  MAPD724-W2023-MidTerm-301205152
-//
-//  Created by Muhammad Bilal Dilbar on 2023-03-01.
-//
+/*
+MidTerm Test – Mail Pilot
+File Name: MAPD724-W2023-MidTerm-301205152
+Author's name and StudentID:
+-> Name: Muhammad Bilal Dilbar Hussain
+-> Student ID: 301205152
+App description: Extending the Mail Pilot Project To Play In Landscape Orientation.
+Last Updated: 01 March, 2023
+Xcode Version : Version 14.2 (14C18)
+ */
+
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
-
-    override func viewDidLoad() {
+class GameViewController: UIViewController
+{
+    //Instance Variables
+    var currentScene: GKScene?
+    
+    @IBOutlet weak var LivesLabel: UILabel!
+    @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var StartLabel: UILabel!
+    @IBOutlet weak var StartButton: UIButton!
+    @IBOutlet weak var EndLabel: UILabel!
+    @IBOutlet weak var RestartButton: UIButton!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        presentStartScene()
         
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "GameScene") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
+        CollisionManager.gameViewController = self
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask
+    {
+        return .portrait
+    }
+
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
+    
+    func updateLivesLabel()
+    {
+        LivesLabel.text = "Lives: \(ScoreManager.Lives)"
+    }
+    
+    func updateScoreLabel()
+    {
+        ScoreLabel.text = "Score: \(ScoreManager.Score)"
+    }
+    
+    func setScene(sceneName: String) -> Void
+    {
+        currentScene = GKScene(fileNamed: sceneName)
+        // Get the SKScene from the loaded GKScene
+        if let sceneNode = currentScene!.rootNode as! SKScene? {
+            // Set the scale mode to scale to fit the window
+            sceneNode.scaleMode = .aspectFill
+            // Present the scene
+            if let view = self.view as! SKView?
+            {
+                view.presentScene(sceneNode)
+                view.ignoresSiblingOrder = true
             }
         }
     }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+    
+    func presentStartScene()
+    {
+        ScoreLabel.isHidden = true
+        LivesLabel.isHidden = true
+        StartLabel.isHidden = false
+        StartButton.isHidden = false
+        setScene(sceneName: "StartScene")
     }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
+    
+    func presentEndScene()
+    {
+        ScoreLabel.isHidden = true
+        LivesLabel.isHidden = true
+        RestartButton.isHidden = false
+        EndLabel.isHidden = false
+        setScene(sceneName: "EndScene")
+    }
+    
+    @IBAction func StartButton_Pressed(_ sender: UIButton)
+    {
+        ScoreLabel.isHidden = false
+        LivesLabel.isHidden = false
+        StartLabel.isHidden = true
+        StartButton.isHidden = true
+        
+        //Initialize the Lives & Score
+        ScoreManager.Score = 0
+        ScoreManager.Lives = 5
+        updateLivesLabel()
+        updateScoreLabel()
+        setScene(sceneName: "GameScene")
+    }
+    
+    @IBAction func RestartButton_Pressed(_ sender: UIButton)
+    {
+        RestartButton.isHidden = true
+        EndLabel.isHidden = true
+        ScoreLabel.isHidden = false
+        LivesLabel.isHidden = false
+        
+        //Initialize the Lives & Score
+        ScoreManager.Score = 0
+        ScoreManager.Lives = 5
+        updateLivesLabel()
+        updateScoreLabel()
+        setScene(sceneName: "GameScene")
     }
 }
