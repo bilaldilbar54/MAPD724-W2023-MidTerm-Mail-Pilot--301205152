@@ -42,7 +42,7 @@ class Cloud : GameObject
     
     override func CheckBounds()
     {
-        if (position.y <= -902)
+        if (position.x <= -925)
         {
             Reset()
         }
@@ -50,19 +50,19 @@ class Cloud : GameObject
     
     override func Reset()
     {
-        //Randomize the vertical speed: 5 to 10
-        verticalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
+        //Randomize the horizontal speed: 5 to 10
+        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * 5.0) + 5.0
         
-        //Randomize the horizontal speed: -2 to 2
-        horizontalSpeed = CGFloat((randomSource?.nextUniform())! * 4.0) - 2.0
+        //Randomize the vertical speed: -2 to 2
+        verticalSpeed = CGFloat((randomSource?.nextUniform())! * 4.0) - 2.0
         
-        //Get a pseudo random number for the X position: -262 to 262
-        let randomX: Int = (randomSource?.nextInt(upperBound: 524))! - 262
-        position.x = CGFloat(randomX)
-        
-        //Get a pseudo random number for the Y position: 902 to 932
-        let randomY: Int = (randomSource?.nextInt(upperBound: 30))! + 902
+        //Get a pseudo random number for the Y position: -286 to 286
+        let randomY: Int = (randomSource?.nextInt(upperBound: 572))! - 286
         position.y = CGFloat(randomY)
+        
+        //Get a pseudo random number for the X position: 925 to 945
+        let randomX: Int = (randomSource?.nextInt(upperBound: 20))! + 925
+        position.x = CGFloat(randomX)
         isColliding = false
     }
     
