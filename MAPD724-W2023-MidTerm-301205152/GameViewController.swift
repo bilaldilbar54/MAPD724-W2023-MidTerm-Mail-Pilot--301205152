@@ -1,6 +1,6 @@
 /*
 MidTerm Test – Mail Pilot
-File Name: MAPD724-W2023-MidTerm-301205152
+File Name: GameViewController.swift
 Author's name and StudentID:
 -> Name: Muhammad Bilal Dilbar Hussain
 -> Student ID: 301205152
@@ -58,7 +58,8 @@ class GameViewController: UIViewController
     {
         currentScene = GKScene(fileNamed: sceneName)
         // Get the SKScene from the loaded GKScene
-        if let sceneNode = currentScene!.rootNode as! SKScene? {
+        if let sceneNode = currentScene!.rootNode as! SKScene?
+        {
             // Set the scale mode to scale to fit the window
             sceneNode.scaleMode = .aspectFill
             // Present the scene

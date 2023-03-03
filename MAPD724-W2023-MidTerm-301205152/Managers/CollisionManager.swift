@@ -1,6 +1,6 @@
 /*
 MidTerm Test – Mail Pilot
-File Name: MAPD724-W2023-MidTerm-301205152
+File Name: CollisionManager.swift
 Author's name and StudentID:
 -> Name: Muhammad Bilal Dilbar Hussain
 -> Student ID: 301205152
@@ -41,7 +41,8 @@ class CollisionManager
             if(!object2.isColliding!)
             {
                 //If object2 is not already colliding
-                switch (object2.name) {
+                switch (object2.name)
+                {
                 case "island":
                     ScoreManager.Score += 100
                     gameViewController?.updateScoreLabel()

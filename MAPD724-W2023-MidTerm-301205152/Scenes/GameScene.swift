@@ -1,6 +1,6 @@
 /*
 MidTerm Test – Mail Pilot
-File Name: MAPD724-W2023-MidTerm-301205152
+File Name: GameScene.swift
 Author's name and StudentID:
 -> Name: Muhammad Bilal Dilbar Hussain
 -> Student ID: 301205152
@@ -38,16 +38,11 @@ class GameScene: SKScene
         
         // add the first ocean to the Scene
         ocean1 = Ocean()
+        //Increasing the width of ocean 
         ocean1?.yScale = 2.75
         ocean1?.position = CGPoint(x: 320, y: 0)
         ocean1?.Reset()
         addChild(ocean1!)
-        
-        // add the second ocean to the Scene
-//        ocean2 = Ocean()
-//        ocean2?.position = CGPoint(x: 627, y: -1107)
-//        ocean2?.Reset()
-//        addChild(ocean2!)
         
         //Add the player to the scene
         player = Player()
@@ -129,7 +124,6 @@ class GameScene: SKScene
     override func update(_ currentTime: TimeInterval)
     {
         ocean1?.Update()
-        ocean2?.Update()
         player?.Update()
         island?.Update()
         

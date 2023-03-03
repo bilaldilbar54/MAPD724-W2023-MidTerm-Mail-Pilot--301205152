@@ -1,6 +1,6 @@
 /*
 MidTerm Test – Mail Pilot
-File Name: MAPD724-W2023-MidTerm-301205152
+File Name: Player.swift
 Author's name and StudentID:
 -> Name: Muhammad Bilal Dilbar Hussain
 -> Student ID: 301205152
@@ -29,6 +29,7 @@ class Player : GameObject
     override func Start()
     {
         zPosition = Layer.plane.rawValue
+        //Rotating the player
         zRotation = -CGFloat.pi/2
         Reset()
     }
